@@ -1,0 +1,47 @@
+{
+  "name": "@arranjae/react-simple-carousel",
+  "version": "1.0.1",
+  "description": "Simple Carousel - React and TypeScript",
+  "author": {
+    "name": "André Filipe Goulart",
+    "email": "afgoulart.rj@gmail.com",
+    "url": "https://github.com/afgoulart"
+  },
+  "keywords": [
+    "typescript",
+    "react",
+    "carousel",
+    "slider",
+    "responsible",
+    "mobile"
+  ],
+  "main": "./src/App.js",
+  "types": "./lib/types.d.ts",
+  "dependencies": {
+    "@types/classnames": "^2.2.10",
+    "classnames": "2.2.6",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-grid-system": "7.0.3",
+    "react-scripts": "3.4.1",
+    "scss": "0.2.4"
+  },
+  "devDependencies": {
+    "@types/react": "16.9.19",
+    "@types/react-dom": "16.9.5",
+    "typescript": "3.7.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "rm -rf ./lib && tsc",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "prepublish": "npm run build"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

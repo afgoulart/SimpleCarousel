@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "esModuleInterop": true,
+        "lib": [ "dom","es2015","ES2016","ESNext"],
+        "outDir": "./lib",
+        "target": "es5",
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "skipLibCheck": true,
+        "strictNullChecks": true,
+        "declaration": true,
+        "sourceMap": true,
+        "jsx": "react",
+        "typeRoots": ["node_modules/@types"]
+    },
+    "include": [
+      "./src"
+    ]
+  }

@@ -1,0 +1,70 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.simple-carousel {
+  position: relative;
+  &-wrapper {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    justify-content: space-between;
+    margin: 0 -24px 5px;
+    padding: 24px;
+    scroll-behavior: smooth;
+  }
+
+  &-item {
+    flex: 1;
+    padding: 16px;
+    text-align: left;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 1px 0px 15px 0 #d1d1d1;
+    margin-right: 10px;
+    padding-top: 45px;
+    min-height: 130px;
+    min-width: 230px;
+    position: relative;
+  }
+
+  .btn-scroll {
+    border: none;
+    top: 0;
+    position: absolute;
+    padding: 10px 20px;
+    height: 40px;
+    bottom: 40px;
+    margin: auto;
+    background: #fff;
+    box-shadow: 0 0 10px 0 #ccc;
+    display: none;
+    &.prev {
+      left: 0;
+    }
+    &.next {
+      right: 0;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    &-wrapper {
+      padding: 24px 20px;
+      margin-left: 60px;
+      margin-right: 60px;
+      overflow: hidden;
+
+      transition: scroll ease 1000ms;
+      &:after {
+        content: 'a';
+        color: transparent;
+        width: 40px;
+        height: 100%;
+      }
+    }
+    .btn-scroll {
+      display: block;
+    }
+  }
+}

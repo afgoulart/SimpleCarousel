@@ -1,1 +1,1 @@
-# SimpleCarrousel
+# Simplecarousel
