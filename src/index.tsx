@@ -5,13 +5,13 @@ export interface Props {
   list: Array<ItemType>;
   wrapperClasses?: string | string[] | any;
   customButtons?: {
-    next: JSX.Element;
-    prev: JSX.Element;
+    next: React.ElementType;
+    prev: React.ElementType;
   };
 }
 
 export interface ItemType {
-  content: JSX.Element;
+  content: React.ElementType;
   onClickItem?: Function;
   itemCustomClass?: string | string[] | any;
 }
@@ -63,34 +63,47 @@ const Simplecarousel: React.FC<Props> = (props: Props) => {
             );
           })}
       </div>
-      {!props.customButtons && (
-        <>
-          <button
-            className={classnames('btn-scroll prev', {
-              hidden: props.list && props.list.length < 2,
-            })}
-            onClick={(e: any) => onPrev()}
-          >
-            {`<`}
-          </button>
 
-          <button
-            className={classnames('btn-scroll next', {
-              hidden: props.list && props.list.length < 2,
-            })}
-            onClick={(e: any) => onNext()}
-          >
-            {`>`}
-          </button>
-        </>
-      )}
-      {props.customButtons && (
-        <>
-          {props.customButtons.next}
-          {props.customButtons.prev}
-        </>
-      )}
+      <CustomButton
+        Elem={props.customButtons?.prev}
+        className={classnames('btn-scroll prev', {
+          hidden: props.list && props.list.length < 2,
+        })}
+        handleClick={onPrev}
+      >{`<`}</CustomButton>
+
+      <CustomButton
+        Elem={props.customButtons?.next}
+        className={classnames('btn-scroll next', {
+          hidden: props.list && props.list.length < 2,
+        })}
+        handleClick={onNext}
+      >{`>`}</CustomButton>
     </div>
+  );
+};
+
+export interface ButtonsProps {
+  Elem?: React.ElementType;
+  className: string;
+  handleClick: Function;
+  children: JSX.Element | JSX.Element[] | undefined;
+}
+
+const CustomButton: React.FC<ButtonsProps> = (props: ButtonsProps) => {
+  if (!props.Elem)
+    return (
+      <button className={props.className} onClick={(e) => props.handleClick(e)}>
+        {props.children}
+      </button>
+    );
+
+  const Btn: React.ElementType = props.Elem;
+
+  return (
+    <Btn className={props.className} onClick={props.handleClick}>
+      {props.children}
+    </Btn>
   );
 };
 

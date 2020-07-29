@@ -1,5 +1,5 @@
 import React from 'react';
-interface Props {
+export interface Props {
     list: Array<ItemType>;
     wrapperClasses?: string | string[] | any;
     customButtons?: {

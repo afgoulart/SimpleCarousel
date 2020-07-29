@@ -28,12 +28,16 @@ var Simplecarousel = function (props) {
             props.list.map(function (item, i) {
                 return (React.createElement("div", { key: "simple-carousel-item-" + i, className: classnames("simple-carousel-item", item.itemCustomClass), onClick: function (e) { var _a, _b, _c; return (_c = (_a = item) === null || _a === void 0 ? void 0 : (_b = _a).onClickItem) === null || _c === void 0 ? void 0 : _c.call(_b, e); } }, item.content));
             })),
-        React.createElement("button", { className: classnames('btn-scroll prev', {
-                hidden: props.list && props.list.length < 2,
-            }), onClick: function (e) { return onPrev(); } }, "<"),
-        React.createElement("button", { className: classnames('btn-scroll next', {
-                hidden: props.list && props.list.length < 2,
-            }), onClick: function (e) { return onNext(); } }, ">")));
+        !props.customButtons && (React.createElement(React.Fragment, null,
+            React.createElement("button", { className: classnames('btn-scroll prev', {
+                    hidden: props.list && props.list.length < 2,
+                }), onClick: function (e) { return onPrev(); } }, "<"),
+            React.createElement("button", { className: classnames('btn-scroll next', {
+                    hidden: props.list && props.list.length < 2,
+                }), onClick: function (e) { return onNext(); } }, ">"))),
+        props.customButtons && (React.createElement(React.Fragment, null,
+            props.customButtons.next,
+            props.customButtons.prev))));
 };
 export default Simplecarousel;
 //# sourceMappingURL=index.js.map
