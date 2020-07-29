@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
 var Simplecarousel = function (props) {
-    var _a = useState(0), refScroll = _a[0], setRefScroll = _a[1];
-    var _b = useState(), refWrapper = _b[0], setRefWrapper = _b[1];
+    var _a, _b;
+    var _c = useState(0), refScroll = _c[0], setRefScroll = _c[1];
+    var _d = useState(), refWrapper = _d[0], setRefWrapper = _d[1];
     useEffect(function () {
         if (!refWrapper)
             return;
@@ -28,16 +29,18 @@ var Simplecarousel = function (props) {
             props.list.map(function (item, i) {
                 return (React.createElement("div", { key: "simple-carousel-item-" + i, className: classnames("simple-carousel-item", item.itemCustomClass), onClick: function (e) { var _a, _b, _c; return (_c = (_a = item) === null || _a === void 0 ? void 0 : (_b = _a).onClickItem) === null || _c === void 0 ? void 0 : _c.call(_b, e); } }, item.content));
             })),
-        !props.customButtons && (React.createElement(React.Fragment, null,
-            React.createElement("button", { className: classnames('btn-scroll prev', {
-                    hidden: props.list && props.list.length < 2,
-                }), onClick: function (e) { return onPrev(); } }, "<"),
-            React.createElement("button", { className: classnames('btn-scroll next', {
-                    hidden: props.list && props.list.length < 2,
-                }), onClick: function (e) { return onNext(); } }, ">"))),
-        props.customButtons && (React.createElement(React.Fragment, null,
-            props.customButtons.next,
-            props.customButtons.prev))));
+        React.createElement(CustomButton, { Elem: (_a = props.customButtons) === null || _a === void 0 ? void 0 : _a.prev, className: classnames('btn-scroll prev', {
+                hidden: props.list && props.list.length < 2,
+            }), handleClick: onPrev }, "Prev"),
+        React.createElement(CustomButton, { Elem: (_b = props.customButtons) === null || _b === void 0 ? void 0 : _b.next, className: classnames('btn-scroll next', {
+                hidden: props.list && props.list.length < 2,
+            }), handleClick: onNext }, "Next")));
+};
+var CustomButton = function (props) {
+    if (!props.Elem)
+        return (React.createElement("button", { className: props.className, onClick: function (e) { return props.handleClick(e); } }, props.children));
+    var Btn = props.Elem;
+    return (React.createElement(Btn, { className: props.className, onClick: props.handleClick }, props.children));
 };
 export default Simplecarousel;
 //# sourceMappingURL=index.js.map

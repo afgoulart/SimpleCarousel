@@ -70,7 +70,7 @@ const Simplecarousel: React.FC<Props> = (props: Props) => {
           hidden: props.list && props.list.length < 2,
         })}
         handleClick={onPrev}
-      >{`<`}</CustomButton>
+      >{`Prev`}</CustomButton>
 
       <CustomButton
         Elem={props.customButtons?.next}
@@ -78,7 +78,7 @@ const Simplecarousel: React.FC<Props> = (props: Props) => {
           hidden: props.list && props.list.length < 2,
         })}
         handleClick={onNext}
-      >{`>`}</CustomButton>
+      >{`Next`}</CustomButton>
     </div>
   );
 };
@@ -87,7 +87,7 @@ export interface ButtonsProps {
   Elem?: React.ElementType;
   className: string;
   handleClick: Function;
-  children: JSX.Element | JSX.Element[] | undefined;
+  children: React.ReactNode;
 }
 
 const CustomButton: React.FC<ButtonsProps> = (props: ButtonsProps) => {
