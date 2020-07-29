@@ -46,7 +46,10 @@
     "prebuild": "rm -rf ./lib ./es",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "release": "release-it"
+    "release": "release-it",
+    "release:patch": "release-it patch",
+    "release:minor": "release-it minor",
+    "release:major": "release-it major"
   },
   "release-it": {
     "git": {
