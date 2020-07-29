@@ -46,7 +46,6 @@
     "prebuild": "rm -rf ./lib ./es",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "prepublish": "npm run build",
     "release": "release-it"
   },
   "release-it": {
@@ -54,6 +53,9 @@
       "commitMessage": "chore(release): version v${version}",
       "requireBranch": false,
       "requireCleanWorkingDir": false
+    },
+    "hooks": {
+      "before:init": "npm run build"
     }
   },
   "browserslist": [
