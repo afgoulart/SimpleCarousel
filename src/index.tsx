@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
 
-interface Props {
+export interface Props {
   list: Array<ItemType>;
   wrapperClasses?: string | string[] | any;
   customButtons?: {
@@ -63,23 +63,33 @@ const Simplecarousel: React.FC<Props> = (props: Props) => {
             );
           })}
       </div>
+      {!props.customButtons && (
+        <>
+          <button
+            className={classnames('btn-scroll prev', {
+              hidden: props.list && props.list.length < 2,
+            })}
+            onClick={(e: any) => onPrev()}
+          >
+            {`<`}
+          </button>
 
-      <button
-        className={classnames('btn-scroll prev', {
-          hidden: props.list && props.list.length < 2,
-        })}
-        onClick={(e: any) => onPrev()}
-      >
-        {`<`}
-      </button>
-      <button
-        className={classnames('btn-scroll next', {
-          hidden: props.list && props.list.length < 2,
-        })}
-        onClick={(e: any) => onNext()}
-      >
-        {`>`}
-      </button>
+          <button
+            className={classnames('btn-scroll next', {
+              hidden: props.list && props.list.length < 2,
+            })}
+            onClick={(e: any) => onNext()}
+          >
+            {`>`}
+          </button>
+        </>
+      )}
+      {props.customButtons && (
+        <>
+          {props.customButtons.next}
+          {props.customButtons.prev}
+        </>
+      )}
     </div>
   );
 };
