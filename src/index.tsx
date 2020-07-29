@@ -4,7 +4,6 @@ import classnames from 'classnames';
 interface Props {
   list: Array<ItemType>;
   wrapperClasses?: string | string[] | any;
-  lastItem?: JSX.Element;
   customButtons?: {
     next: JSX.Element;
     prev: JSX.Element;
@@ -12,11 +11,7 @@ interface Props {
 }
 
 export interface ItemType {
-  item: any;
-  type: string;
   content: JSX.Element;
-  id: string | number;
-  checked: boolean;
   onClickItem?: Function;
   itemCustomClass?: string | string[] | any;
 }
@@ -56,9 +51,9 @@ const Simplecarousel: React.FC<Props> = (props: Props) => {
           props.list.map((item: ItemType, i) => {
             return (
               <div
-                key={`simple-carousel-item-${item.type}-${i}`}
+                key={`simple-carousel-item-${i}`}
                 className={classnames(
-                  `simple-carousel-item ${item.id}`,
+                  `simple-carousel-item`,
                   item.itemCustomClass
                 )}
                 onClick={(e) => item?.onClickItem?.(e)}
@@ -67,7 +62,6 @@ const Simplecarousel: React.FC<Props> = (props: Props) => {
               </div>
             );
           })}
-        {props.lastItem}
       </div>
 
       <button
