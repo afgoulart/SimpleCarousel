@@ -29,7 +29,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/afgoulart/simple-carousel.git"
+    "url": "https://github.com/afgoulart/simple-carousel.git",
+    "directory": "packages/@arranjae/react-simple-carousel"
   },
   "publishConfig": {
     "access": "public"
@@ -46,8 +47,7 @@
     "release": "release-it"
   },
   "dependencies": {
-    "classnames": "^2.2.6",
-    "rollup-plugin-scss": "^2.6.0"
+    "classnames": "^2.2.6"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
@@ -70,6 +70,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-scss": "^2.6.0",
     "rollup-plugin-uglify": "^6.0.4"
   },
   "peerDependencies": {
