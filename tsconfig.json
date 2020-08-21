@@ -19,5 +19,5 @@
     "esModuleInterop": true ,
     "moduleResolution": "node"
   },
-  "files": ["./src/index.tsx"]
+  "files": ["src/index.tsx"]
 }

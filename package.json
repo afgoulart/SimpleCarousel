@@ -16,6 +16,7 @@
     "cjs",
     "umd",
     "lib",
+    "src",
     "index.d.ts",
     "LICENSE"
   ],
@@ -65,8 +66,6 @@
     "typescript": "^3.9.7",
     "@types/node": "^14.6.0",
     "babel-plugin-add-module-exports": "^1.0.2",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
     "release-it": "^13.6.8",
     "rimraf": "^2.6.1",
     "rollup": "^1.16.4",
@@ -77,7 +76,8 @@
     "rollup-plugin-uglify": "^6.0.4"
   },
   "peerDependencies": {
-    "react": ">= 16.3.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "license": "MIT",
   "release-it": {

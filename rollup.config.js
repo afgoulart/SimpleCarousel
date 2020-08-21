@@ -4,7 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import replace from 'rollup-plugin-replace';
 import { uglify } from 'rollup-plugin-uglify';
 
-const basePlugins = [resolve(), commonjs(), scss()];
+const basePlugins = [resolve(), commonjs()];
 
 const external = ['react'];
 const globals = {
@@ -13,25 +13,25 @@ const globals = {
 
 export default [
   {
-    input: 'cjs/index.js',
+    input: 'es6/index.js',
     output: {
       file: 'umd/SimpleCarousel.js',
       format: 'umd',
-      name: 'SimpleCarousel',
+      name: 'Simplecarousel',
       globals,
     },
-    plugins: [...basePlugins, replace({ 'process.env.NODE_ENV': '"development"' })],
+    plugins: [scss({ output: 'bundle.css' }), ...basePlugins, replace({ 'process.env.NODE_ENV': '"development"' })],
     external,
   },
   {
-    input: 'cjs/index.js',
+    input: 'es6/index.js',
     output: {
       file: 'umd/SimpleCarousel.min.js',
       format: 'umd',
-      name: 'SimpleCarousel',
+      name: 'Simplecarousel',
       globals,
     },
-    plugins: [...basePlugins, replace({ 'process.env.NODE_ENV': '"production"' }), uglify()],
+    plugins: [scss({ output: 'bundle.css' }), ...basePlugins, replace({ 'process.env.NODE_ENV': '"production"' }), uglify()],
     external,
   },
 ];
