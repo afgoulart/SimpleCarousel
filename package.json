@@ -29,8 +29,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/afgoulart/simple-carousel.git",
+    "url": "https://github.com/afgoulart/SimpleCarousel.git",
     "directory": "packages/@arranjae/react-simple-carousel"
+  },
+  "bugs": {
+    "url": "https://github.com/afgoulart/SimpleCarousel/issues"
   },
   "publishConfig": {
     "access": "public"
