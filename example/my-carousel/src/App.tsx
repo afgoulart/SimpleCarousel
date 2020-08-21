@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Simplecarousel } from '@arranjae/react-simple-carousel';
+import { SimpleCarousel } from '@arranjae/react-simple-carousel';
 import '@arranjae/react-simple-carousel/src/styles.scss';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         </a>
       </header>
 
-      <Simplecarousel
+      <SimpleCarousel
         list={[
           {
             content: (

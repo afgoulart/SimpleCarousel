@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import classnames from 'classnames';
 import { ItemProps } from './types';
 
-export const SimplecarouselItem: React.FC<ItemProps> = (props: ItemProps) => {
+export const SimpleCarouselItem: React.FC<ItemProps> = (props: ItemProps) => {
   const { item, refer } = props;
   const thisRef = React.useRef<any>();
 
@@ -27,4 +27,4 @@ export const SimplecarouselItem: React.FC<ItemProps> = (props: ItemProps) => {
   );
 };
 
-export default SimplecarouselItem;
+export default SimpleCarouselItem;

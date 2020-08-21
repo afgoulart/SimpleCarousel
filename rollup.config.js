@@ -17,10 +17,10 @@ export default [
     output: {
       file: 'umd/SimpleCarousel.js',
       format: 'umd',
-      name: 'Simplecarousel',
+      name: 'SimpleCarousel',
       globals,
     },
-    plugins: [scss({ output: 'bundle.css' }), ...basePlugins, replace({ 'process.env.NODE_ENV': '"development"' })],
+    plugins: [scss({ output: 'umd/bundle.css' }), ...basePlugins, replace({ 'process.env.NODE_ENV': '"development"' })],
     external,
   },
   {
@@ -28,10 +28,10 @@ export default [
     output: {
       file: 'umd/SimpleCarousel.min.js',
       format: 'umd',
-      name: 'Simplecarousel',
+      name: 'SimpleCarousel',
       globals,
     },
-    plugins: [scss({ output: 'bundle.css' }), ...basePlugins, replace({ 'process.env.NODE_ENV': '"production"' }), uglify()],
+    plugins: [scss({ output: 'umd/bundle.css' }), ...basePlugins, replace({ 'process.env.NODE_ENV': '"production"' }), uglify()],
     external,
   },
 ];

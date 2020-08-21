@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import classnames from 'classnames';
-import { SimplecarouselItem } from '.';
+import { SimpleCarouselItem } from '.';
 import { CustomButton } from './Common';
 import { ItemType, CarouselProps } from './types';
 
-const Simplecarousel: React.FC<CarouselProps> = (props: CarouselProps) => {
+const SimpleCarousel: React.FC<CarouselProps> = (props: CarouselProps) => {
   const [actualScroll, setActualScroll] = useState<number>(0);
   const [wrapperRef, setWrapperRef] = useState<any>();
   const itemsRefs: any = {};
@@ -40,7 +40,7 @@ const Simplecarousel: React.FC<CarouselProps> = (props: CarouselProps) => {
       <div ref={(inst) => setWrapperRef(inst)} className={classnames('simple-carousel-wrapper', props.wrapperClasses)}>
         {props.list.map((item: ItemType, i) => {
           return (
-            <SimplecarouselItem
+            <SimpleCarouselItem
               key={i}
               id={`simple-carousel-item-${i}`}
               refer={(inst: any) => {
@@ -90,4 +90,4 @@ const Simplecarousel: React.FC<CarouselProps> = (props: CarouselProps) => {
   );
 };
 
-export default Simplecarousel;
+export default SimpleCarousel;
