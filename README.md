@@ -21,14 +21,6 @@ or
 
 `yarn add @arranjae/react-simple-carousel`
 
-or in the browser (global variable `SimpleCarousel`):
-
-```html
-<script crossorigin src="https://unpkg.com/react@16/umd/react.production.js"></script>
-<script crossorigin src="https://unpkg.com/@arranjae/react-simple-carousel@1.0.11/umd/SimpleCarousel.min.js"></script>
-<link href="https://unpkg.com/@arranjae/react-simple-carousel@1.0.11/umd/SimpleCarousel.min.css"></script>
-```
-
 ## `<SimpleCarousel list<ItemType[]>={[]} />`
 
 Create a responsive carousel with this component passing items array.
@@ -67,7 +59,7 @@ interface ItemType {
 }
 ```
 
-## Simple Example ()
+## Simple Example (JSX/TSX)
 
 See in folder examples/my-carousel a example using create-react-app
 
@@ -140,3 +132,5 @@ const App = () => {
 
 export default App;
 ```
+
+## Thankyou!
