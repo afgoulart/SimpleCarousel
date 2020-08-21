@@ -1,20 +1,23 @@
 {
-    "compilerOptions": {
-        "strict": true,
-        "esModuleInterop": true,
-        "lib": [ "dom","es2015","ES2016","ESNext"],
-        "outDir": "./lib",
-        "target": "es5",
-        "module": "commonjs",
-        "noImplicitAny": true,
-        "skipLibCheck": true,
-        "strictNullChecks": true,
-        "declaration": true,
-        "sourceMap": true,
-        "jsx": "react",
-        "typeRoots": ["node_modules/@types"]
-    },
-    "include": [
-      "./src"
-    ]
-  }
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es6",
+    "lib": ["ES5", "ES6"],
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "es6",
+    "sourceMap": true,
+    "strict": true,
+    "jsx": "react",
+    "removeComments": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "types": ["node"],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true ,
+    "moduleResolution": "node"
+  },
+  "files": ["./src/index.tsx"]
+}

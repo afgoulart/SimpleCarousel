@@ -1,4 +1,5 @@
 import React from 'react';
+import { ClassValue } from 'classnames/types';
 export interface Props {
     list: Array<ItemType>;
     wrapperClasses?: string | string[] | any;
@@ -10,7 +11,7 @@ export interface Props {
 export interface ItemType {
     content: React.ElementType;
     onClickItem?: Function;
-    itemCustomClass?: string | string[] | any;
+    itemCustomClass?: ClassValue[] | any;
 }
 declare const Simplecarousel: React.FC<Props>;
 export interface ButtonsProps {
@@ -20,3 +21,4 @@ export interface ButtonsProps {
     children: React.ReactNode;
 }
 export default Simplecarousel;
+//# sourceMappingURL=index.d.ts.map

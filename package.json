@@ -7,6 +7,18 @@
     "email": "afgoulart.rj@gmail.com",
     "url": "https://github.com/afgoulart"
   },
+  "main": "cjs/index.js",
+  "module": "es6/index.js",
+  "types": "es6/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "es6",
+    "cjs",
+    "umd",
+    "lib",
+    "index.d.ts",
+    "LICENSE"
+  ],
   "keywords": [
     "typescript",
     "react",
@@ -15,40 +27,55 @@
     "responsible",
     "mobile"
   ],
-  "types": "./lib/types.d.ts",
-  "dependencies": {
-    "classnames": "^2.2.6"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/afgoulart/simple-carousel.git"
   },
-  "peerDependencies": {
-    "react": "^15.0.0 || ^16.0.0"
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf lib && rimraf es6 && rimraf cjs && rimraf umd",
+    "build": "npm run clean && npm run build-es6 && npm run build-cjs && npm run build-umd && npm run build-legacy",
+    "build-es6": "tsc",
+    "build-cjs": "babel es6 -D -d cjs",
+    "build-umd": "rollup -c",
+    "build-legacy": "babel es6 -D -d lib",
+    "release:major": "release-it major",
+    "release:minor": "release-it minor",
+    "release": "release-it"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "rollup-plugin-scss": "^2.6.0"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
-    "@types/react": "16.9.19",
-    "@types/react-dom": "16.9.5",
-    "release-it": "^13.6.6",
-    "typescript": "3.7.5"
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/react-dom": "^16.9.8",
+    "@types/react": "^16.9.43",
+    "typescript": "^3.9.7",
+    "@types/node": "^14.6.0",
+    "babel-plugin-add-module-exports": "^1.0.2",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "release-it": "^13.6.8",
+    "rimraf": "^2.6.1",
+    "rollup": "^1.16.4",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-uglify": "^6.0.4"
   },
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "files": [
-    "es",
-    "lib",
-    "src"
-  ],
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "npm run build:commonjs && npm run build:es",
-    "build:commonjs": "tsc -m commonjs --outDir lib/",
-    "build:es": "tsc -m esnext --outDir es/",
-    "prebuild": "rm -rf ./lib ./es",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "release": "release-it",
-    "release:patch": "release-it patch",
-    "release:minor": "release-it minor",
-    "release:major": "release-it major"
+  "peerDependencies": {
+    "react": ">= 16.3.0"
   },
+  "license": "MIT",
   "release-it": {
     "git": {
       "commitMessage": "chore(release): version v${version}",
@@ -58,11 +85,5 @@
     "hooks": {
       "before:init": "npm run build"
     }
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  }
 }

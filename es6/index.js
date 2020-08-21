@@ -27,7 +27,7 @@ var Simplecarousel = function (props) {
         React.createElement("div", { ref: function (inst) { return setRefWrapper(inst); }, className: classnames('simple-carousel-wrapper', props.wrapperClasses) }, props.list &&
             props.list.length > 0 &&
             props.list.map(function (item, i) {
-                return (React.createElement("div", { key: "simple-carousel-item-" + i, className: classnames("simple-carousel-item", item.itemCustomClass), onClick: function (e) { var _a, _b, _c; return (_c = (_a = item) === null || _a === void 0 ? void 0 : (_b = _a).onClickItem) === null || _c === void 0 ? void 0 : _c.call(_b, e); } }, item.content));
+                return (React.createElement("div", { key: "simple-carousel-item-" + i, className: classnames("simple-carousel-item", item.itemCustomClass), onClick: function (e) { var _a; return (_a = item.onClickItem) === null || _a === void 0 ? void 0 : _a.call(item, e); } }, item.content));
             })),
         React.createElement(CustomButton, { Elem: (_a = props.customButtons) === null || _a === void 0 ? void 0 : _a.prev, className: classnames('btn-scroll prev', {
                 hidden: props.list && props.list.length < 2,

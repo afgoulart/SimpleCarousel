@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
+import { ClassValue } from 'classnames/types';
 
 export interface Props {
   list: Array<ItemType>;
@@ -13,7 +14,7 @@ export interface Props {
 export interface ItemType {
   content: React.ElementType;
   onClickItem?: Function;
-  itemCustomClass?: string | string[] | any;
+  itemCustomClass?: ClassValue[] | any;
 }
 
 const Simplecarousel: React.FC<Props> = (props: Props) => {
@@ -42,21 +43,15 @@ const Simplecarousel: React.FC<Props> = (props: Props) => {
 
   return (
     <div className="simple-carousel">
-      <div
-        ref={(inst) => setRefWrapper(inst)}
-        className={classnames('simple-carousel-wrapper', props.wrapperClasses)}
-      >
+      <div ref={(inst) => setRefWrapper(inst)} className={classnames('simple-carousel-wrapper', props.wrapperClasses)}>
         {props.list &&
           props.list.length > 0 &&
           props.list.map((item: ItemType, i) => {
             return (
               <div
                 key={`simple-carousel-item-${i}`}
-                className={classnames(
-                  `simple-carousel-item`,
-                  item.itemCustomClass
-                )}
-                onClick={(e) => item?.onClickItem?.(e)}
+                className={classnames(`simple-carousel-item`, item.itemCustomClass)}
+                onClick={(e) => item.onClickItem?.(e)}
               >
                 {item.content}
               </div>
