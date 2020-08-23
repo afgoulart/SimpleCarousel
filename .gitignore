@@ -3,4 +3,4 @@ yarn.lock
 cjs/
 es6/
 lib/
-umd/
+dist/

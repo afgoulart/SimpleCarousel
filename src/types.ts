@@ -4,6 +4,7 @@ export interface CarouselProps {
   list: Array<ItemType>;
   wrapperClasses?: string | string[] | any;
   showBullets?: boolean;
+  showCardNoItems?: boolean;
   customButtons?: {
     next: React.ElementType;
     prev: React.ElementType;
@@ -18,8 +19,8 @@ export interface ItemType {
 
 export interface ItemProps {
   item: ItemType;
-  id: string;
   refer: Function;
+  id?: string;
   setScroll?: Function;
 }
 
