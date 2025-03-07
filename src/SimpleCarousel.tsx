@@ -60,7 +60,7 @@ const SimpleCarousel: React.FC<CarouselProps> = (props: CarouselProps) => {
           {props.list.map((_item: ItemType, i: number) => {
             return (
               <span
-                className={`simple-carousel-bullets-item ${i === actualScroll ? 'active' : ''}`}
+                className={`simple-carousel-bullets-item ${i === actualScroll - 1 ? 'active' : ''}`}
                 key={`bullet-${i}`}
                 onClick={() => {
                   moveToItem(i);
