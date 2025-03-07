@@ -52,6 +52,7 @@ const SimpleCarousel: React.FC<CarouselProps> = (props: CarouselProps) => {
               item={item}
               setScroll={() => {
                 setActualScroll(wrapperRef.scrollLeft);
+                setActualItem(i);
               }}
             />
           );
