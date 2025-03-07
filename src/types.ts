@@ -1,5 +1,3 @@
-import { ClassValue } from 'classnames/types';
-
 export interface CarouselProps {
   list: Array<ItemType>;
   wrapperClasses?: string | string[] | any;
@@ -14,7 +12,7 @@ export interface CarouselProps {
 export interface ItemType {
   content: JSX.Element;
   onClickItem?: Function;
-  itemCustomClass?: ClassValue[] | any;
+  itemCustomClass?: any;
 }
 
 export interface ItemProps {

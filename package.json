@@ -45,8 +45,8 @@
     "build-es6": "tsc",
     "build-cjs": "babel es6 -D -d cjs",
     "build-css": "npm run build-css:normal && npm run build-css:min",
-    "build-css:min": "node-sass src/styles.scss dist/SimpleCarousel.min.css  --output-style=compressed --source-map=true",
-    "build-css:normal": "node-sass src/styles.scss dist/SimpleCarousel.css",
+    "build-css:min": "sass src/styles.scss dist/SimpleCarousel.min.css --style=compressed --source-map",
+    "build-css:normal": "sass src/styles.scss dist/SimpleCarousel.css",
     "build-legacy": "babel es6 -D -d lib",
     "release:major": "release-it major",
     "release:minor": "release-it minor",
@@ -55,7 +55,8 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "classnames": "^2.2.6"
+    "classnames": "^2.5.1",
+    "sass": "^1.85.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
@@ -68,13 +69,12 @@
     "@storybook/addon-essentials": "^6.0.16",
     "@storybook/addon-links": "^6.0.16",
     "@storybook/react": "^6.0.16",
-    "@types/classnames": "^2.2.10",
+    "@types/classnames": "^2.3.4",
     "@types/node": "^14.6.0",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "babel-loader": "^8.1.0",
     "babel-plugin-add-module-exports": "^1.0.2",
-    "node-sass": "^4.14.1",
     "react-is": "^16.13.1",
     "release-it": "^13.6.8",
     "rimraf": "^2.6.1",

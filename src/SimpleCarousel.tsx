@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import classnames from 'classnames';
-import { SimpleCarouselItem } from '.';
-import { CustomButton } from './Common';
-import { ItemType, CarouselProps } from './types';
+import classnames from "classnames";
+import React, { useState } from "react";
+
+import { SimpleCarouselItem } from "./";
+import { CustomButton } from "./Common";
+import { CarouselProps, ItemType } from "./types";
 
 const SimpleCarousel: React.FC<CarouselProps> = (props: CarouselProps) => {
   const [actualScroll, setActualScroll] = useState<number>(0);
@@ -59,7 +60,7 @@ const SimpleCarousel: React.FC<CarouselProps> = (props: CarouselProps) => {
           {props.list.map((_item: ItemType, i: number) => {
             return (
               <span
-                className="simple-carousel-bullets-item"
+                className={`simple-carousel-bullets-item ${i === actualScroll ? 'active' : ''}`}
                 key={`bullet-${i}`}
                 onClick={() => {
                   moveToItem(i);
