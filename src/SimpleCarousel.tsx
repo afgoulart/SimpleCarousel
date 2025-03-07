@@ -7,6 +7,7 @@ import { CarouselProps, ItemType } from "./types";
 
 const SimpleCarousel: React.FC<CarouselProps> = (props: CarouselProps) => {
   const [actualScroll, setActualScroll] = useState<number>(0);
+  const [actualItem, setActualItem] = useState<number>(0);
   const [wrapperRef, setWrapperRef] = useState<any>();
   const itemsRefs: any = {};
 
@@ -34,6 +35,7 @@ const SimpleCarousel: React.FC<CarouselProps> = (props: CarouselProps) => {
   const moveToItem = (i: number) => {
     itemsRefs[`ref-item-${i}`].current.scrollIntoView({ behavior: 'smooth', inline: 'center' });
     setActualScroll(wrapperRef.scrollLeft);
+    setActualItem(i);
   };
 
   return (
@@ -60,7 +62,7 @@ const SimpleCarousel: React.FC<CarouselProps> = (props: CarouselProps) => {
           {props.list.map((_item: ItemType, i: number) => {
             return (
               <span
-                className={`simple-carousel-bullets-item ${i === actualScroll - 1 ? 'active' : ''}`}
+                className={`simple-carousel-bullets-item ${i === actualItem ? 'active' : ''}`}
                 key={`bullet-${i}`}
                 onClick={() => {
                   moveToItem(i);
